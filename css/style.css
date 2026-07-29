@@ -1,0 +1,604 @@
+/* ===========================
+   CSS Variables & Reset
+=========================== */
+:root {
+    --bg-primary: #f0f2f5;
+    --bg-secondary: #ffffff;
+    --bg-card: #ffffff;
+    --text-primary: #1a1a2e;
+    --text-secondary: #4a4a6a;
+    --text-muted: #8888aa;
+    --accent: #6c63ff;
+    --accent-hover: #574fd6;
+    --accent-light: #ede9ff;
+    --success: #22c55e;
+    --success-hover: #16a34a;
+    --danger: #ef4444;
+    --danger-hover: #dc2626;
+    --warning: #f59e0b;
+    --warning-hover: #d97706;
+    --border: #e2e4ea;
+    --shadow: 0 4px 24px rgba(108, 99, 255, 0.08);
+    --shadow-hover: 0 8px 32px rgba(108, 99, 255, 0.16);
+    --radius: 16px;
+    --radius-sm: 8px;
+    --transition: 0.25s ease;
+}
+
+[data-theme="dark"] {
+    --bg-primary: #0f0f1a;
+    --bg-secondary: #1a1a2e;
+    --bg-card: #1e1e30;
+    --text-primary: #f0f0ff;
+    --text-secondary: #b0b0cc;
+    --text-muted: #6666aa;
+    --accent: #7c74ff;
+    --accent-hover: #9d97ff;
+    --accent-light: #2a2550;
+    --success: #4ade80;
+    --success-hover: #22c55e;
+    --danger: #f87171;
+    --danger-hover: #ef4444;
+    --warning: #fbbf24;
+    --warning-hover: #f59e0b;
+    --border: #2e2e48;
+    --shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+    --shadow-hover: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    min-height: 100vh;
+    transition: background-color var(--transition), color var(--transition);
+    padding: 24px 16px 48px;
+}
+
+/* ===========================
+   Layout
+=========================== */
+.container {
+    max-width: 860px;
+    margin: 0 auto;
+    position: relative;
+}
+
+section {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    padding: 28px 32px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    transition: background-color var(--transition), border-color var(--transition), box-shadow var(--transition);
+}
+
+section:hover {
+    box-shadow: var(--shadow-hover);
+}
+
+section h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+}
+
+/* ===========================
+   Theme Toggle
+=========================== */
+.theme-toggle {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 16px;
+}
+
+.theme-btn {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow);
+    transition: all var(--transition);
+}
+
+.theme-btn:hover {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-hover);
+}
+
+/* ===========================
+   Greeting Section
+=========================== */
+.greeting-section {
+    text-align: center;
+    padding: 40px 32px;
+}
+
+.time-display {
+    font-size: 3.5rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.date-display {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    letter-spacing: 0.02em;
+}
+
+.greeting {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+}
+
+.name-container {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.name-input {
+    padding: 10px 16px;
+    border-radius: var(--radius-sm);
+    border: 2px solid var(--border);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    width: 220px;
+    outline: none;
+    transition: border-color var(--transition), background var(--transition);
+}
+
+.name-input:focus {
+    border-color: var(--accent);
+    background: var(--bg-secondary);
+}
+
+.save-btn {
+    padding: 10px 20px;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background var(--transition), transform var(--transition);
+}
+
+.save-btn:hover {
+    background: var(--accent-hover);
+    transform: translateY(-1px);
+}
+
+.user-greeting {
+    margin-top: 14px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    min-height: 1.8rem;
+}
+
+/* ===========================
+   Focus Timer Section
+=========================== */
+.timer-settings {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.timer-settings label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.timer-settings input[type="number"] {
+    width: 72px;
+    padding: 8px 12px;
+    border-radius: var(--radius-sm);
+    border: 2px solid var(--border);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    text-align: center;
+    outline: none;
+    transition: border-color var(--transition), background var(--transition);
+}
+
+.timer-settings input[type="number"]:focus {
+    border-color: var(--accent);
+}
+
+.set-btn {
+    padding: 8px 18px;
+    background: var(--accent-light);
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.set-btn:hover {
+    background: var(--accent);
+    color: #fff;
+}
+
+.timer-display {
+    font-size: 5rem;
+    font-weight: 700;
+    text-align: center;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.04em;
+    margin-bottom: 24px;
+    line-height: 1;
+}
+
+.timer-display.running {
+    animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+.timer-controls {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ===========================
+   Buttons
+=========================== */
+.btn {
+    padding: 10px 24px;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn-start {
+    background: var(--success);
+    color: #fff;
+}
+.btn-start:hover { background: var(--success-hover); }
+
+.btn-stop {
+    background: var(--warning);
+    color: #fff;
+}
+.btn-stop:hover { background: var(--warning-hover); }
+
+.btn-reset {
+    background: var(--danger);
+    color: #fff;
+}
+.btn-reset:hover { background: var(--danger-hover); }
+
+.btn-add {
+    background: var(--accent);
+    color: #fff;
+    white-space: nowrap;
+}
+.btn-add:hover { background: var(--accent-hover); }
+
+.btn-sort {
+    background: var(--bg-primary);
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+    white-space: nowrap;
+}
+.btn-sort:hover {
+    background: var(--accent-light);
+    color: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+}
+
+/* ===========================
+   To-Do List Section
+=========================== */
+.todo-controls {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.todo-input {
+    flex: 1;
+    min-width: 160px;
+    padding: 10px 16px;
+    border-radius: var(--radius-sm);
+    border: 2px solid var(--border);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color var(--transition), background var(--transition);
+}
+
+.todo-input:focus {
+    border-color: var(--accent);
+    background: var(--bg-secondary);
+}
+
+.todo-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: var(--bg-primary);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    transition: all var(--transition);
+    animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.todo-item:hover {
+    border-color: var(--accent);
+    background: var(--bg-secondary);
+}
+
+.todo-item.done .todo-text {
+    text-decoration: line-through;
+    color: var(--text-muted);
+}
+
+.todo-checkbox {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--success);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.todo-text {
+    flex: 1;
+    font-size: 0.95rem;
+    word-break: break-word;
+    transition: color var(--transition);
+}
+
+.todo-edit-input {
+    flex: 1;
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 2px solid var(--accent);
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    outline: none;
+}
+
+.todo-actions {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.btn-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 4px 6px;
+    border-radius: 6px;
+    transition: background var(--transition), transform var(--transition);
+    line-height: 1;
+}
+
+.btn-icon:hover {
+    transform: scale(1.2);
+}
+
+.btn-icon.edit { color: var(--warning); }
+.btn-icon.edit:hover { background: rgba(245, 158, 11, 0.1); }
+
+.btn-icon.delete { color: var(--danger); }
+.btn-icon.delete:hover { background: rgba(239, 68, 68, 0.1); }
+
+.btn-icon.save-edit { color: var(--success); }
+.btn-icon.save-edit:hover { background: rgba(34, 197, 94, 0.1); }
+
+.empty-msg {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    padding: 20px 0;
+}
+
+/* ===========================
+   Quick Links Section
+=========================== */
+.link-controls {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.link-input {
+    flex: 1;
+    min-width: 120px;
+    padding: 10px 16px;
+    border-radius: var(--radius-sm);
+    border: 2px solid var(--border);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color var(--transition), background var(--transition);
+}
+
+.link-input:focus {
+    border-color: var(--accent);
+    background: var(--bg-secondary);
+}
+
+.links-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.link-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--accent-light);
+    border: 1px solid var(--accent);
+    border-radius: 50px;
+    padding: 8px 16px;
+    animation: fadeIn 0.2s ease;
+    transition: all var(--transition);
+}
+
+.link-item:hover {
+    background: var(--accent);
+}
+
+.link-item:hover .link-anchor {
+    color: #fff;
+}
+
+.link-anchor {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: color var(--transition);
+}
+
+.link-item:hover .btn-icon.delete {
+    color: rgba(255,255,255,0.8);
+}
+
+.link-item:hover .btn-icon.delete:hover {
+    color: #fff;
+    background: rgba(255,255,255,0.2);
+}
+
+/* ===========================
+   Toast Notification
+=========================== */
+.toast {
+    position: fixed;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%) translateY(80px);
+    background: var(--text-primary);
+    color: var(--bg-card);
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    white-space: nowrap;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.toast.error {
+    background: var(--danger);
+    color: #fff;
+}
+
+/* ===========================
+   Responsive
+=========================== */
+@media (max-width: 600px) {
+    body {
+        padding: 12px 10px 40px;
+    }
+
+    section {
+        padding: 20px 16px;
+    }
+
+    .time-display {
+        font-size: 2.4rem;
+    }
+
+    .timer-display {
+        font-size: 3.5rem;
+    }
+
+    .greeting {
+        font-size: 1.4rem;
+    }
+
+    .todo-controls,
+    .link-controls {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
